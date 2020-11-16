@@ -19,7 +19,6 @@ class UserSeeder extends Seeder
         $user->email = 'administrador@gmail.com';
         $user->lastname = 'ADMIN';
         $user->password = Hash::make('12345678');
-        $user->email_verified_at = date('Y-m-d H:i:s');
         $user->save();
 
         $user->assignRole('admin');
@@ -30,7 +29,6 @@ class UserSeeder extends Seeder
         $user->email = 'gerente@gmail.com';
         $user->lastname = 'GERENTE';
         $user->password = Hash::make('12345678');
-        $user->email_verified_at = date('Y-m-d H:i:s');
         $user->save();
 
         $user->assignRole('gerente');
@@ -41,7 +39,6 @@ class UserSeeder extends Seeder
         $user->email = 'cliente@gmail.com';
         $user->lastname = 'CLIENTE';
         $user->password = Hash::make('12345678');
-        $user->email_verified_at = date('Y-m-d H:i:s');
         $user->save();
 
         $user->assignRole('cliente');
