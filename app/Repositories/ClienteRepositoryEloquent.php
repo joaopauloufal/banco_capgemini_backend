@@ -4,16 +4,16 @@ namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\PessoaRepository;
-use App\Entities\Pessoa;
-use App\Validators\PessoaValidator;
+use App\Repositories\ClienteRepository;
+use App\Entities\Cliente;
+use App\Validators\ClienteValidator;
 
 /**
- * Class PessoaRepositoryEloquent.
+ * Class ClienteRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class PessoaRepositoryEloquent extends BaseRepository implements PessoaRepository
+class ClienteRepositoryEloquent extends BaseRepository implements ClienteRepository
 {
     /**
      * Specify Model class name
@@ -22,7 +22,7 @@ class PessoaRepositoryEloquent extends BaseRepository implements PessoaRepositor
      */
     public function model()
     {
-        return Pessoa::class;
+        return Cliente::class;
     }
 
     

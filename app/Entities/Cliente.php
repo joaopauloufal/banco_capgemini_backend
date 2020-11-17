@@ -7,21 +7,21 @@ use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class Pessoa.
+ * Class Cliente.
  *
  * @package namespace App\Entities;
  */
-class Pessoa extends Model implements Transformable
+class Cliente extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $table = 'pessoas';
+    protected $table = 'clientes';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['cpf_cnpj', 'nome'];
+    protected $fillable = ['nome', 'cpf_cnpj'];
 
 }
