@@ -52,7 +52,7 @@ class ContaRequest extends FormRequest
             'tipo.max' => 'O campo Tipo de Conta deve ter no máximo 8 caracteres.',
 
             'saldo.required' => 'É obrigatório informar o saldo.',
-            'saldo.regex' => 'O formato para o campo Saldo deve estar no formato (0,00).'
+            'saldo.regex' => 'O formato para o campo Saldo deve estar no formato (0,00).',
         ];
     }
 }

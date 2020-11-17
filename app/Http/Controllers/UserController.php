@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Repositories\UserRepositoryEloquent;
 use App\Traits\CrudApiTrait;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {

@@ -19,14 +19,24 @@ class ContaController extends Controller
 
     public function store(ContaRequest $request)
     {
-        $result = $this->repository->create($request->all());
+        $data = $request->all();
+        $data['saldo'] = $this->convertMoneyToFloat($data['saldo']);
+        $result = $this->repository->create($data);
         return response()->json($result);
     }
 
     public function update(ContaRequest $request, $id)
     {
         $result = $this->repository->find($id);
-        $result->update($request->all());
+        $data = $request->all();
+        $data['saldo'] = $this->convertMoneyToFloat($data['saldo']);
+        $result->update($data);
         return response()->json($result);
+    }
+
+    private function convertMoneyToFloat($valor){
+        $val = str_replace(",",".",$valor);
+        $val = preg_replace('/\.(?=.*\.)/', '', $val);
+        return floatval($val);
     }
 }
