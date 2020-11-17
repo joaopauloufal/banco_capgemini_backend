@@ -25,6 +25,7 @@ Route::group(['prefix'=>'v1'], function () {
 
     Route::group(['prefix'=>'conta'], function () {
         Route::post('{id}/depositar', 'TransacaoContaController@depositar');
+        Route::post('{id}/sacar', 'TransacaoContaController@sacar');
     });
 });
 

@@ -41,7 +41,6 @@ class UserController extends Controller
         $data = $request->all();
         $result = $this->repository->find($id);
 
-
         if ($request->roles){
             $roles = json_decode($request->roles);
             $result->syncRoles(array_column($roles, 'name'));
@@ -55,11 +54,8 @@ class UserController extends Controller
 
         $result->name = $data['name'];
         $result->email = $data['email'];
-
         $result->save();
-
         $result = $this->repository->find($id);
-
         return response()->json($result);
     }
 

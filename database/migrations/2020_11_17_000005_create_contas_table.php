@@ -22,7 +22,6 @@ class CreateContasTable extends Migration
             $table->string('numero', 120);
             $table->string('tipo', 8);
             $table->float('saldo')->default(0.0);
-            $table->boolean('is_ativo')->default(false);
             $table->unique(['agencia_id', 'numero', 'tipo'], 'agencia_id_numero_tipo_unique');
             $table->timestamps();
         });
