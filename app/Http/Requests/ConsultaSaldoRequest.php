@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TransacaoContaRequest extends FormRequest
+class ConsultaSaldoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,21 +24,15 @@ class TransacaoContaRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required|exists:contas,id',
-            'valor' => 'required|regex:/^\d{1,3}(?:\.\d{3})*?,\d{2}$/'
+            'id' => 'required|exists:contas,id'
         ];
     }
 
     public function messages()
     {
         return [
-
-            'id.required' => 'É obrigatório informar a Conta',
+            'id.required' => 'É obrigatório informar a Conta.',
             'id.exists' => 'A conta informada não existe em nossos registros.',
-
-            'valor.required' => 'É obrigatório informar o valor para o depósito.',
-            'valor.regex' => 'O formato para o campo Valor deve estar no formato (0,00).',
-
         ];
     }
 }

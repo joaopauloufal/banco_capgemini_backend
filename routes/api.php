@@ -24,8 +24,9 @@ Route::group(['prefix'=>'v1'], function () {
     Route::resource('permissions', RoleController::class);
 
     Route::group(['prefix'=>'conta'], function () {
-        Route::post('{id}/depositar', 'TransacaoContaController@depositar');
-        Route::post('{id}/sacar', 'TransacaoContaController@sacar');
+        Route::get('saldo', 'TransacaoContaController@consultaSaldo');
+        Route::post('depositar/{id}', 'TransacaoContaController@depositar');
+        Route::post('sacar/{id}', 'TransacaoContaController@sacar');
     });
 });
 

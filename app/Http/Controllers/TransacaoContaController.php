@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ConsultaSaldoRequest;
 use App\Http\Requests\TransacaoContaRequest;
 use App\Repositories\ContaRepositoryEloquent;
 use App\Services\ContaService;
@@ -16,6 +17,12 @@ class TransacaoContaController extends Controller
     public function __construct(ContaRepositoryEloquent $repository)
     {
         $this->repository = $repository;
+    }
+
+    public function consultaSaldo(ConsultaSaldoRequest $request) {
+        $conta = $this->repository->find($request->id);
+        $this->contaService = new ContaService($conta);
+        return $this->contaService->consultaSaldo();
     }
 
     public function depositar(TransacaoContaRequest $request) {
@@ -39,5 +46,4 @@ class TransacaoContaController extends Controller
         $this->contaService = new ContaService($conta);
         return UtilsService::converterMoneyToFloat($request->valor);
     }
-
 }

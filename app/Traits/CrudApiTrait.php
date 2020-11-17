@@ -3,7 +3,7 @@ namespace App\Traits;
 use Illuminate\Http\Request;
 
 trait CrudApiTrait {
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

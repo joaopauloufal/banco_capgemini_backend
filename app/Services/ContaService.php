@@ -27,7 +27,13 @@ class ContaService {
         $this->conta->save();
     }
 
-    private function verificarSaldo(float $valor){
+    public function consultaSaldo()
+    {
+        return $this->conta->saldo;
+    }
+
+    private function verificarSaldo(float $valor)
+    {
         // Verifica se existe saldo suficiente para o saque.
         if ($this->conta->saldo == 0) {
             throw new Exception('Saldo insuficiente!');
