@@ -22,6 +22,6 @@ class Cliente extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['nome', 'cpf_cnpj'];
+    protected $fillable = ['nome', 'cpf'];
 
 }

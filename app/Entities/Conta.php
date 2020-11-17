@@ -20,6 +20,6 @@ class Conta extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['pessoa_id', 'agencia_id', 'numero', 'tipo', 'saldo', 'is_ativo'];
+    protected $fillable = ['cliente_id', 'agencia_id', 'numero', 'tipo', 'saldo', 'is_ativo'];
 
 }

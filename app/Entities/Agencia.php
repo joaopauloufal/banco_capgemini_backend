@@ -22,6 +22,6 @@ class Agencia extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['nome'];
+    protected $fillable = ['nome', 'numero'];
 
 }

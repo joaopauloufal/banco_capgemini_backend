@@ -15,14 +15,14 @@ class CreateContasTable extends Migration
     {
         Schema::create('contas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('pessoa_id');
-            $table->foreign('pessoa_id')->references('id')->on('pessoas');
+            $table->bigInteger('cliente_id');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->bigInteger('agencia_id');
             $table->foreign('agencia_id')->references('id')->on('agencias');
             $table->string('numero', 120);
             $table->string('tipo', 8);
             $table->float('saldo')->default(0.0);
-            $table->boolean('is_ativo')->default(true);
+            $table->boolean('is_ativo')->default(false);
             $table->unique(['agencia_id', 'numero', 'tipo'], 'agencia_id_numero_tipo_unique');
             $table->timestamps();
         });

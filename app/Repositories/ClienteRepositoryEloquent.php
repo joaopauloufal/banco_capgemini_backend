@@ -15,6 +15,11 @@ use App\Validators\ClienteValidator;
  */
 class ClienteRepositoryEloquent extends BaseRepository implements ClienteRepository
 {
+
+    protected $fieldSearchable = [
+        'cpf_cnpj'
+    ];
+
     /**
      * Specify Model class name
      *
@@ -25,7 +30,7 @@ class ClienteRepositoryEloquent extends BaseRepository implements ClienteReposit
         return Cliente::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
@@ -34,5 +39,5 @@ class ClienteRepositoryEloquent extends BaseRepository implements ClienteReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

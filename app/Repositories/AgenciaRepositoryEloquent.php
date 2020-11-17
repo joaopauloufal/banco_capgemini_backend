@@ -15,6 +15,11 @@ use App\Validators\AgenciaValidator;
  */
 class AgenciaRepositoryEloquent extends BaseRepository implements AgenciaRepository
 {
+
+    protected $fieldSearchable = [
+        'nome'
+    ];
+
     /**
      * Specify Model class name
      *
@@ -25,7 +30,7 @@ class AgenciaRepositoryEloquent extends BaseRepository implements AgenciaReposit
         return Agencia::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
@@ -34,5 +39,5 @@ class AgenciaRepositoryEloquent extends BaseRepository implements AgenciaReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }
