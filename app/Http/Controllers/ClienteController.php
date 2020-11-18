@@ -11,6 +11,7 @@ class ClienteController extends Controller
     use CrudApiTrait;
 
     protected $repository;
+
     public function __construct(ClienteRepositoryEloquent $repository)
     {
         $this->repository = $repository;

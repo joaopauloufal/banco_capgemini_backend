@@ -22,13 +22,18 @@ class TransacaoContaController extends Controller
     public function consultaSaldo(ConsultaSaldoRequest $request) {
         $conta = $this->repository->find($request->id);
         $this->contaService = new ContaService($conta);
-        return $this->contaService->consultaSaldo();
+        $saldo = $this->contaService->consultaSaldo();
+        return response()->json(['saldo'=>$saldo]);
     }
 
     public function depositar(TransacaoContaRequest $request) {
         $valorFormatado = $this->buscarContaAndFormatarValor($request);
-        $this->contaService->depositar($valorFormatado);
-        return response()->json(['message'=>'Depósito realizado com sucesso!']);
+        try {
+            $this->contaService->depositar($valorFormatado);
+            return response()->json(['message'=>'Depósito realizado com sucesso!']);
+        } catch (Exception $e) {
+            return response()->json(['message'=>$e->getMessage()], 422);
+        }
     }
 
     public function sacar(TransacaoContaRequest $request) {

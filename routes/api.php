@@ -20,8 +20,6 @@ Route::group(['prefix'=>'v1'], function () {
     Route::resource('clientes', ClienteController::class);
     Route::resource('contas', ContaController::class);
     Route::resource('users', UserController::class);
-    Route::resource('roles', RoleController::class);
-    Route::resource('permissions', RoleController::class);
 
     Route::group(['prefix'=>'conta'], function () {
         Route::get('saldo', 'TransacaoContaController@consultaSaldo');

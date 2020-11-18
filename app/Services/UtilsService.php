@@ -5,7 +5,7 @@ namespace App\Services;
 class UtilsService {
 
     /**
-     * Formata um valor string do tipo moeda para float.
+     * Formata um valor string do tipo moeda para float de modo a ser persistido no banco de dados.
      *
      * @param  string  $valor
      * @return float

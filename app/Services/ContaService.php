@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Entities\Conta;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class ContaService {
 
@@ -16,15 +17,24 @@ class ContaService {
 
     public function depositar(float $valor)
     {
-        $this->conta->saldo += $valor;
-        $this->conta->save();
+        DB::transaction(function () use ($valor)
+        {
+            $this->verificarValorMenorQueZero($valor);
+            $this->conta->saldo += $valor;
+            $this->conta->save();
+        });
+
     }
 
     public function sacar(float $valor)
     {
-        $this->verificarSaldo($valor);
-        $this->conta->saldo -= $valor;
-        $this->conta->save();
+        DB::transaction(function () use ($valor)
+        {
+            $this->verificarValorMenorQueZero($valor);
+            $this->verificarSaldo($valor);
+            $this->conta->saldo -= $valor;
+            $this->conta->save();
+        });
     }
 
     public function consultaSaldo()
@@ -42,6 +52,13 @@ class ContaService {
             throw new Exception('Saldo insuficiente para saque com esse valor informado!');
         }
 
+    }
+
+    private function verificarValorMenorQueZero(float $valor)
+    {
+        if ($valor <= 0) {
+            throw new Exception('O valor informado precisa ser maior do que zero!');
+        }
     }
 
 }
