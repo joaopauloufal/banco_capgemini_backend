@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,13 +19,11 @@ Route::group(['prefix'=>'v1'], function () {
     Route::resource('clientes', ClienteController::class);
     Route::resource('contas', ContaController::class);
     Route::resource('users', UserController::class);
-    Route::resource('roles', RoleController::class);
-    Route::resource('permissions', RoleController::class);
 
     Route::group(['prefix'=>'conta'], function () {
         Route::get('saldo', 'TransacaoContaController@consultaSaldo');
-        Route::post('depositar/{id}', 'TransacaoContaController@depositar');
-        Route::post('sacar/{id}', 'TransacaoContaController@sacar');
+        Route::put('depositar/{id}', 'TransacaoContaController@depositar');
+        Route::put('sacar/{id}', 'TransacaoContaController@sacar');
     });
 });
 

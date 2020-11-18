@@ -22,4 +22,9 @@ class Conta extends Model implements Transformable
      */
     protected $fillable = ['cliente_id', 'agencia_id', 'numero', 'tipo', 'saldo'];
 
+    public function agencia()
+    {
+        return $this->belongsTo('App\Entities\Agencia');
+    }
+
 }

@@ -36,9 +36,8 @@ class TransacaoContaRequest extends FormRequest
             'id.required' => 'É obrigatório informar a Conta',
             'id.exists' => 'A conta informada não existe em nossos registros.',
 
-            'valor.required' => 'É obrigatório informar o valor para o depósito.',
-            'valor.regex' => 'O formato para o campo Valor deve estar no formato (0,00).',
-
+            'valor.required' => 'É obrigatório informar o valor.',
+            'valor.regex' => 'O formato para o campo Valor tem que estar no formato R$ 0,00 e ser maior do que zero.',
         ];
     }
 }

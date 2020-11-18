@@ -12,6 +12,6 @@ class ContaSeeder extends Seeder
      */
     public function run()
     {
-        factory(Conta::class, 3)->create();
+        factory(Conta::class, 9)->create();
     }
 }

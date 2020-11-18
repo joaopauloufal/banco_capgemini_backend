@@ -15,6 +15,11 @@ use App\Validators\ContaValidator;
  */
 class ContaRepositoryEloquent extends BaseRepository implements ContaRepository
 {
+
+    protected $fieldSearchable = [
+        'numero' => 'like'
+    ];
+
     /**
      * Specify Model class name
      *
@@ -25,7 +30,7 @@ class ContaRepositoryEloquent extends BaseRepository implements ContaRepository
         return Conta::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
@@ -34,5 +39,5 @@ class ContaRepositoryEloquent extends BaseRepository implements ContaRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }

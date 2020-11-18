@@ -167,7 +167,6 @@ return [
          */
 
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-        Spatie\Permission\PermissionServiceProvider::class,
 
         /*
          * Application Service Providers...

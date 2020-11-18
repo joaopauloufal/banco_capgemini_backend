@@ -21,7 +21,7 @@ class ContaController extends Controller
     public function store(ContaRequest $request)
     {
         $data = $request->all();
-        $data['saldo'] = UtilsService::converterMoneyToFloat($data['saldo']);
+        $data['saldo'] = UtilsService::converterMoedaParaFloat($data['saldo']);
         $result = $this->repository->create($data);
         return response()->json($result);
     }
@@ -30,7 +30,7 @@ class ContaController extends Controller
     {
         $result = $this->repository->find($id);
         $data = $request->all();
-        $data['saldo'] = UtilsService::converterMoneyToFloat($data['saldo']);
+        $data['saldo'] = UtilsService::converterMoedaParaFloat($data['saldo']);
         $result->update($data);
         return response()->json($result);
     }

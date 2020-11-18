@@ -13,6 +13,6 @@ $factory->define(Conta::class, function (Faker $faker) {
         'agencia_id' => factory(Agencia::class),
         'numero' => (string) $faker->numerify('#######-#'),
         'tipo' => 'corrente',
-        'saldo' => 0.0
+        'saldo' => '30,00'
     ];
 });
