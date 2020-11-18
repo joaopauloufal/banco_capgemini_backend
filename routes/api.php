@@ -23,8 +23,8 @@ Route::group(['prefix'=>'v1'], function () {
 
     Route::group(['prefix'=>'conta'], function () {
         Route::get('saldo', 'TransacaoContaController@consultaSaldo');
-        Route::post('depositar/{id}', 'TransacaoContaController@depositar');
-        Route::post('sacar/{id}', 'TransacaoContaController@sacar');
+        Route::put('depositar/{id}', 'TransacaoContaController@depositar');
+        Route::put('sacar/{id}', 'TransacaoContaController@sacar');
     });
 });
 

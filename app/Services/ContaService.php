@@ -20,7 +20,7 @@ class ContaService {
         DB::transaction(function () use ($valor)
         {
             $this->verificarValorMenorQueZero($valor);
-            $this->conta->saldo += $valor;
+            $this->conta->saldo = ((float) $this->conta->saldo) + $valor;
             $this->conta->save();
         });
 
@@ -32,8 +32,9 @@ class ContaService {
         {
             $this->verificarValorMenorQueZero($valor);
             $this->verificarSaldo($valor);
-            $this->conta->saldo -= $valor;
+            $this->conta->saldo =  ((float) $this->conta->saldo) - $valor;
             $this->conta->save();
+
         });
     }
 

@@ -26,7 +26,7 @@ class ClienteRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:200',
-            'cpf' => ['required','max:14','cpf','formato_cpf', Rule::unique('clientes')->ignore(request()->id)],
+            'cpf' => ['required','max:14','formato_cpf', Rule::unique('clientes')->ignore(request()->id)],
             'user_id' => 'required'
         ];
     }
@@ -44,7 +44,6 @@ class ClienteRequest extends FormRequest
             'cpf.required' => 'O campo CPF é obrigatório.',
             'cpf.max' => 'O campo CPF deve possuir no máximo 14 dígitos.',
             'cpf.unique' => 'Já existe um Requerente com esse CPF! Verifique.',
-            'cpf.cpf' => 'O CPF informado não é válido.',
             'cpf.formato_cpf' => 'O campo CPF deve estar no formato XXX.XXX.XXX-XX',
         ];
     }
