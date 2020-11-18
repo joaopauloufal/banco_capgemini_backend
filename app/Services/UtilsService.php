@@ -10,7 +10,7 @@ class UtilsService {
      * @param  string  $valor
      * @return float
      */
-    public static function converterMoneyToFloat(string $valor){
+    public static function converterMoedaParaFloat(string $valor){
         $val = str_replace(",",".",$valor);
         $val = preg_replace('/\.(?=.*\.)/', '', $val);
         return floatval($val);

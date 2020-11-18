@@ -8,11 +8,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements Transformable
 {
-    use Notifiable, HasApiTokens, HasRoles, TransformableTrait;
+    use Notifiable, HasApiTokens, TransformableTrait;
 
     /**
      * The attributes that are mass assignable.

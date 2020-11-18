@@ -17,9 +17,15 @@ class ContaService {
 
     public function depositar(float $valor)
     {
+        /**
+         * Incrementa o saldo e persiste no banco de dados.
+         *
+         * @param  float  $valor
+         * @return void
+         */
         DB::transaction(function () use ($valor)
         {
-            $this->verificarValorMenorQueZero($valor);
+            $this->verificaValorInformadoMenorQueZero($valor);
             $this->conta->saldo = ((float) $this->conta->saldo) + $valor;
             $this->conta->save();
         });
@@ -28,10 +34,16 @@ class ContaService {
 
     public function sacar(float $valor)
     {
+        /**
+         * Decrementa o saldo e persiste no banco de dados.
+         *
+         * @param  float  $valor
+         * @return void
+         */
         DB::transaction(function () use ($valor)
         {
-            $this->verificarValorMenorQueZero($valor);
-            $this->verificarSaldo($valor);
+            $this->verificaValorInformadoMenorQueZero($valor);
+            $this->verificaSaldoInsuficienteEValorMaiorQueSaldo($valor);
             $this->conta->saldo =  ((float) $this->conta->saldo) - $valor;
             $this->conta->save();
 
@@ -40,10 +52,16 @@ class ContaService {
 
     public function consultaSaldo()
     {
+        /**
+         * Retorna o valor do saldo da conta.
+         *
+         * @param  float  $valor
+         * @return void
+         */
         return $this->conta->saldo;
     }
 
-    private function verificarSaldo(float $valor)
+    private function verificaSaldoInsuficienteEValorMaiorQueSaldo(float $valor)
     {
         // Verifica se existe saldo suficiente para o saque.
         if ($this->conta->saldo == 0) {
@@ -55,7 +73,7 @@ class ContaService {
 
     }
 
-    private function verificarValorMenorQueZero(float $valor)
+    private function verificaValorInformadoMenorQueZero(float $valor)
     {
         if ($valor <= 0) {
             throw new Exception('O valor informado precisa ser maior do que zero!');
