@@ -11,6 +11,7 @@ Você pode acessar o respositório do Frontend do projeto [clicando aqui](https:
 Procedimentos necessários para configurar e executar o projeto para o desenvolvimento:
 
 - Acesse esse [link](https://laravel.com/docs/7.x) para as instruções de instalação das dependências do PHP.
+- Foi utilizado o PHP 7.4.12 e sistema operacional Ubuntu 18.04 para o desenvolvimento.
 - Após instalar as dependências, abra um console, navegue até a raiz do projeto e execute "composer install".
 - Após a conclusão da instalação, execute "php artisan serve" (A API será executada em [http:localhost:8000](http:localhost:8000)).
 - Para executar os testes (Feature e Unit) execute "vendor/bin/phpunit".
