@@ -118,4 +118,16 @@ class ApiTransacaoContaTest extends TestCase
 
     }
 
+    public function testDepositoValorNegativo()
+    {
+        $conta = factory(Conta::class)->create();
+        $data = [
+            'valor' => '-60,00',
+            'id' => $conta->id
+        ];
+        $response = $this->putJson('api/v1/conta/depositar/' . $conta->id, $data);
+        $response->assertStatus(422);
+
+    }
+
 }
